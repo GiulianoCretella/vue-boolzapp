@@ -22,7 +22,8 @@
             <div class="col-4">
                 <div class="row align-content-center align-items-center justify-content-between">
                     <div class="col-6 p-1">
-                        <img class="rounded-circle img-fluid" :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="">
+                        <img class="rounded-circle img-fluid" :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'"
+                            alt="">
                         <span class="nome">{{contacts[currentIndex].name}}</span>
                     </div>
                     <div class="col-6 text-end">
@@ -35,8 +36,9 @@
             <div class="col-8">
                 <div class="row align-content-center align-items-center justify-content-between">
                     <div class="col-8 p-1">
-                        <img class="float-start rounded-circle img-fluid" :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="">
-                        <div class="header-text float-start"> 
+                        <img class="float-start rounded-circle img-fluid"
+                            :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="">
+                        <div class="header-text float-start">
                             <p>{{contacts[currentIndex].name}}</p>
                             <span class="accesso">ultimo accesso 14 ore fa</span>
                         </div>
@@ -55,9 +57,9 @@
                     <div class="col-3 bell-circle">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
-                    <div class="col-9"> 
+                    <div class="col-9">
                         <p>Ricevi notifiche di nuovi messaggi</p>
-                        <a class="text-grey"href="#">Attiva notifiche desktop</a>
+                        <a class="text-grey" href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
                 <div class="search-bar p-1">
@@ -65,29 +67,36 @@
                         <span class="input-group-text" id="addon-wrapping">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
-                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
+                            aria-label="Cerca" aria-describedby="addon-wrapping" v-model="cerca" @keyup="filtra">
                     </div>
                 </div>
                 <div class="account">
                     <ul class="bg-light">
-                        <li @click="indexSelection(index)" v-for="(contact,index) in contacts" :class="{'active-account': index === currentIndex}">
-                            <img class="rounded-circle float-start img-fluid" :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
-                            <div class="header-text float-start"> 
-                                <p>{{contact.name}}</p>
-                                <span class="accesso">ultimo messaggio inviato</span>
+                        <li @click="indexSelection(index)" v-for="(contact,index) in contacts"
+                            :class="{'active-account': index === currentIndex, 'd-none' : contact.visible === 'false'}">
+                            <div v-if="contact.visible">
+                                <img class="rounded-circle float-start img-fluid"
+                                    :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
+                                <div class="header-text float-start">
+                                    <p>{{contact.name}}</p>
+                                    <span class="accesso">ultimo messaggio inviato</span>
+                                </div>
+                                <span class="accesso float-end p-1">12.00</span>
                             </div>
-                            <span class="accesso float-end p-1">12.00</span>
                         </li>
                     </ul>
                 </div>
             </div>
             <div class="message-box col-8">
-                <div v-for="(message,index) in contacts[currentIndex].messages"  :key="index" :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
+                <div v-for="(message,index) in contacts[currentIndex].messages" :key="index"
+                    :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
                     {{message.message}}
                 </div>
                 <div class="chat" @keyup.enter="addMioMessaggio()">
                     <i class="fa-solid fa-face-smile"></i>
-                    <input v-model="mioMessaggio" class="chat-input p-1" type="text" placeholder="Scrivi un messaggio...">
+                    <input v-model="mioMessaggio" class="chat-input p-1" type="text"
+                        placeholder="Scrivi un messaggio...">
                     <i class="float-end fa-solid fa-microphone"></i>
                 </div>
             </div>
