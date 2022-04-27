@@ -115,6 +115,7 @@ span.accesso{
     background-color: #E9EBEB;
 }
 .messaggio-mio{
+    float: right;
     background-color: #D2F4B6;
     clear: both;
     padding: 10px;
@@ -124,6 +125,7 @@ span.accesso{
 
 }
 .messaggio-utente{
+    float: left;
     min-width: 40%;
     background-color: #FFFFFF;
     padding: 10px;

@@ -70,7 +70,7 @@
                 </div>
                 <div class="account">
                     <ul class="bg-light">
-                        <li v-for="(contact,index) in contacts" class="active-account">
+                        <li @click="indexSelection(index)" v-for="(contact,index) in contacts" :class="{'active-account': index === currentIndex}">
                             <img class="rounded-circle float-start img-fluid" :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
                             <div class="header-text float-start"> 
                                 <p>{{contact.name}}</p>
@@ -80,8 +80,6 @@
                         </li>
                     </ul>
                 </div>
-                
-                
             </div>
             <div class="message-box col-8">
                 <div class="chat">
@@ -89,16 +87,9 @@
                     <input class="chat-input p-1" type="text" placeholder="Scrivi un messaggio...">
                     <i class="float-end fa-solid fa-microphone"></i>
                 </div>
-                <div class="messaggio-mio float-end">
-                    <span>hai portato</span>
+                <div v-for="(message,index) in contacts[currentIndex].messages" :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
+                    {{message.message}}
                 </div>
-                <div class="messaggio-utente float-start">
-                    <span>Tutto fatto!</span>
-                </div>
-                <div class="messaggio-mio float-end">
-                    <span>Hai portato a spasso il cane?</span>
-                </div>
-                
             </div>
         </div>
     </main>
