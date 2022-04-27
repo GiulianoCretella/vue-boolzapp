@@ -9,6 +9,7 @@ const app = new Vue({
     data:{
         contacts: [
             {
+                id:1,
                 name: 'Michele',
                 avatar: '_1',
                 visible: true,
@@ -31,6 +32,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:2,
                 name: 'Fabio',
                 avatar: '_2',
                 visible: true,
@@ -53,6 +55,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:3,
                 name: 'Samuele',
                 avatar: '_3',
                 visible: true,
@@ -75,6 +78,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:4,
                 name: 'Alessandro B.',
                 avatar: '_4',
                 visible: true,
@@ -92,6 +96,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:5,
                 name: 'Alessandro L.',
                 avatar: '_5',
                 visible: true,
@@ -109,6 +114,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:6,
                 name: 'Claudia',
                 avatar: '_6',
                 visible: true,
@@ -131,6 +137,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:7,
                 name: 'Federico',
                 avatar: '_7',
                 visible: true,
@@ -148,6 +155,7 @@ const app = new Vue({
                 ],
             },
             {
+                id:8,
                 name: 'Davide',
                 avatar: '_8',
                 visible: true,
@@ -175,8 +183,11 @@ const app = new Vue({
         cerca:'',
     },
     methods:{
-        indexSelection(index){
-          this.currentIndex = index
+        indexSelection(id){
+         const index = this.contacts.findIndex((contact)=>{
+             return contact.id === id
+         })
+         this.currentIndex = index
         },
         addMioMessaggio(){
             const newMessage = {
@@ -195,14 +206,16 @@ const app = new Vue({
                 this.contacts[this.currentIndex].messages.push(messaggioUtente);
             },3000)
         },
-        filtra(){
-          this.contacts.forEach((element)=> {
-              if(element.name.toLowerCase().includes(this.cerca.toLowerCase())){
-                   element.visible = true;
-              }else{
-                  element.visible = false;
-              }
-          });
+    },
+    computed:{
+        filtro(){
+            return this.contacts.filter((contact)=>{
+                if(contact.name.toLowerCase().includes(this.cerca.toLowerCase())){
+                    return true
+                }else{
+                    return false
+                }
+            })
         }
     }
 })

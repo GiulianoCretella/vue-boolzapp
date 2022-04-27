@@ -68,13 +68,13 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </span>
                         <input type="text" class="form-control" placeholder="Cerca o inizia una nuova chat"
-                            aria-label="Cerca" aria-describedby="addon-wrapping" v-model="cerca" @keyup="filtra">
+                            aria-label="Cerca" aria-describedby="addon-wrapping" v-model="cerca">
                     </div>
                 </div>
                 <div class="account">
                     <ul class="bg-light">
-                        <li @click="indexSelection(index)" v-for="(contact,index) in contacts"
-                            :class="{'active-account': index === currentIndex, 'd-none' : contact.visible === 'false'}">
+                        <li @click="indexSelection(contact.id)" v-for="(contact,index) in filtro" :key="contact.id"
+                            :class="{'active-account': contact.id === currentIndex +1}">
                             <div v-if="contact.visible">
                                 <img class="rounded-circle float-start img-fluid"
                                     :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">

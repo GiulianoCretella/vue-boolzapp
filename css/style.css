@@ -131,6 +131,7 @@ span.accesso{
     padding: 10px;
     border-radius: 5px;
     margin-top: 30px;
+    clear: both;
 }
 @media screen and (max-width:772px) {
     .main_header span.nome{
