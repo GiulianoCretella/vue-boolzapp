@@ -111,6 +111,25 @@ span.accesso{
     border: none;
     border-radius: 5px;
 }
+.active-account{
+    background-color: #E9EBEB;
+}
+.messaggio-mio{
+    background-color: #D2F4B6;
+    clear: both;
+    padding: 10px;
+    border-radius: 5px;
+    min-width: 40%;
+    margin-top: 30px;
+
+}
+.messaggio-utente{
+    min-width: 40%;
+    background-color: #FFFFFF;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 30px;
+}
 @media screen and (max-width:772px) {
     .main_header span.nome{
         display: none;
