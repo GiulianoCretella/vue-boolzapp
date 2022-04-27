@@ -171,14 +171,34 @@ const app = new Vue({
             }
         ],
         currentIndex:0,
-        messaggioMio:'messaggio-mio',
-        messaggioUtente:'messaggio-utente',
+        mioMessaggio:'',
     },
     methods:{
         indexSelection(index){
           this.currentIndex = index
+        },
+        addMioMessaggio(){
+            const newMessage = {
+                date: '10/01/2020 15:51:00',
+                message:this.mioMessaggio,
+                status:'sent'
+            };
+            this.contacts[this.currentIndex].messages.push(newMessage);
+            this.mioMessaggio='';
+            const messaggioUtente= {
+                date: '10/01/2020 15:51:00',
+                message:'OK!',
+                status:'received'
+            }
+            setTimeout(()=>{
+                this.contacts[this.currentIndex].messages.push(messaggioUtente);
+            },3000)
         }
     }
 })
 // ●	Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ●	Click sul contatto mostra la conversazione del contatto cliccato
+
+// Milestone 3
+// ●	Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// ●	Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.

@@ -82,13 +82,13 @@
                 </div>
             </div>
             <div class="message-box col-8">
-                <div class="chat">
-                    <i class="fa-solid fa-face-smile"></i>
-                    <input class="chat-input p-1" type="text" placeholder="Scrivi un messaggio...">
-                    <i class="float-end fa-solid fa-microphone"></i>
-                </div>
-                <div v-for="(message,index) in contacts[currentIndex].messages" :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
+                <div v-for="(message,index) in contacts[currentIndex].messages"  :key="index" :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
                     {{message.message}}
+                </div>
+                <div class="chat" @keyup.enter="addMioMessaggio()">
+                    <i class="fa-solid fa-face-smile"></i>
+                    <input v-model="mioMessaggio" class="chat-input p-1" type="text" placeholder="Scrivi un messaggio...">
+                    <i class="float-end fa-solid fa-microphone"></i>
                 </div>
             </div>
         </div>
