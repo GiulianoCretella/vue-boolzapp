@@ -103,7 +103,8 @@
                     <i class="fa-solid fa-face-smile"></i>
                     <input v-model="mioMessaggio" class="chat-input p-1" type="text"
                         placeholder="Scrivi un messaggio...">
-                    <i class="float-end fa-solid fa-microphone"></i>
+                        <i class="float-end fa-solid fa-microphone"></i>
+                    <i @click="addMioMessaggio()" class="float-end fa-solid fa-paper-plane"></i>
                 </div>
             </div>
         </div>
