@@ -219,7 +219,12 @@ const app = new Vue({
                 status:'sent',
                 display:'false'
             };
-            this.contacts[this.currentIndex].messages.push(newMessage);
+            if(this.mioMessaggio === ''){
+                return
+            }else{
+                this.contacts[this.currentIndex].messages.push(newMessage);
+
+            }
             this.mioMessaggio='';
             console.log(newMessage.date)
             const messaggioUtente= {
