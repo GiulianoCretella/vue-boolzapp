@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -40,7 +42,7 @@
                             :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="">
                         <div class="header-text float-start">
                             <p>{{contacts[currentIndex].name}}</p>
-                            <span class="accesso">ultimo accesso 14 ore fa</span>
+                            <span class="accesso">ultimo accesso : {{contacts[currentIndex].messages[currentIndex].date}}</span>
                         </div>
                     </div>
                     <div class="col-4 float-end text-end fa-container">
@@ -80,18 +82,21 @@
                                 :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
                             <div class="header-text float-start">
                                 <p>{{contact.name}}</p>
-                                <span class="accesso">ultimo messaggio inviato</span>
+                                <span class="accesso"></span>
                             </div>
-                            <span class="accesso float-end">12.00</span>
+                            <span class="accesso float-end"></span>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="message-box col-8">
-                <div v-for="(message,index) in contacts[currentIndex].messages" :key="index"
+                <div class="messages">
+                    <div  v-for="(message,index) in contacts[currentIndex].messages" :key="index"
                     :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
-                    {{message.message}}
-                    <div @click="eliminaMessaggio(index)" class="elimina">Elimina messaggio</div>
+                    <span @click="showRemove(index,currentIndex)">{{message.message}}</span>
+                    <span class="accesso w-25">{{message.date}}</span>
+                        <div @click="eliminaMessaggio(index)" :class="{'d-block': !message.display}" class="elimina">Elimina messaggio</div>
+                    </div>
                 </div>
                 <div class="chat" @keyup.enter="addMioMessaggio()">
                     <i class="fa-solid fa-face-smile"></i>

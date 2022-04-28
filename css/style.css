@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
 }
+    
 .debug{
     border: 1px solid black;
 }
@@ -56,6 +57,7 @@ span.accesso{
 }
 .account-side{
     height: 100%;
+    background-color: #D3DBDB;
 }
 .bell-circle{
     width: 45px;
@@ -72,17 +74,32 @@ span.accesso{
    transform:translate(-50%, -50%);
    color:#83CAE9;
 }
+.contact-list-box{
+    overflow-y: auto;
+    height: 100%;
+}
 .notification{
-  background-color: #83CAE9;
+    background-color: #83CAE9;
+    height: 60px;
+    font-size: 0.8em;
 }
 .search-bar{
     background-color: #FAFAFA;
+    height: 40px;
 }
+.account{
+    height: calc(100% - 100px);
+}
+
 .message-box{
     height: 100%;
     background-image: url(../img/mine.jpg);
     position: relative;
+}
+.messages{
+    height: calc(100% - 40px);
     overflow:scroll;
+
 }
 .account .contact-list-box .contact-list{
     clear: both;
@@ -95,7 +112,7 @@ span.accesso{
     bottom:0;
     right: 0;
     background-color: #F3EEE9;
-
+    height: 40px;
 }
 .chat-input{
     width: 70%;
@@ -130,14 +147,14 @@ span.accesso{
     position: relative;
 }
 .elimina{
-    width: 50%;
     border: 0.5px solid lightgrey;
     padding: 5px;
     position: absolute;
     bottom: -30px;
     background-color: white;
     border-radius: 10px;
-    /* opacity:0; */
+    min-width: 40%;
+    display: none;
 }
 @media screen and (max-width:772px) {
     .main_header span.nome{
@@ -148,6 +165,12 @@ span.accesso{
         max-width: 30px;
     }
     .account img{
+        display: none;
+    }
+    .account{
+        height: calc(100% - 40px);
+    }
+    .notification{
         display: none;
     }
 }
