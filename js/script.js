@@ -179,6 +179,7 @@ const app = new Vue({
             }
         ],
         currentIndex:0,
+        activeContactId:1,
         mioMessaggio:'',
         cerca:'',
     },
@@ -188,6 +189,7 @@ const app = new Vue({
              return contact.id === id
          })
          this.currentIndex = index
+         this.activeContactId = id
         },
         addMioMessaggio(){
             const newMessage = {
@@ -206,6 +208,9 @@ const app = new Vue({
                 this.contacts[this.currentIndex].messages.push(messaggioUtente);
             },3000)
         },
+        eliminaMessaggio(index){
+            this.contacts[this.currentIndex].messages.splice(index,1)
+        }
     },
     computed:{
         filtro(){
