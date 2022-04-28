@@ -80,7 +80,7 @@
                             
                             <img class="rounded-circle float-start img-fluid"
                                 :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
-                            <div class="header-text">
+                            <div class="header-text py-2">
                                 <p>{{contact.name}}</p>
                                 <span class="accesso">{{contacts[index].messages.length > 0 ? contact.messages.at(-1).message : ''}}</span>
                                 <span class="accesso data-messaggio">{{contacts[index].messages.length > 0 ? contact.messages.at(-1).date : ''}}</span>
