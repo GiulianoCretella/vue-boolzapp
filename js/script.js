@@ -214,7 +214,7 @@ const app = new Vue({
         },
         addMioMessaggio(){
             const newMessage = {
-                date: dayjs().format('HH:mm'),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message:this.mioMessaggio,
                 status:'sent',
                 display:'false'
@@ -223,7 +223,7 @@ const app = new Vue({
             this.mioMessaggio='';
             console.log(newMessage.date)
             const messaggioUtente= {
-                date: dayjs().format('HH:mm'),
+                date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
                 message:'OK!',
                 status:'received',
                 display:'false'
@@ -237,6 +237,18 @@ const app = new Vue({
         },
         showRemove: function(index,currentIndex){
            this.contacts[currentIndex].messages[index].display = !this.contacts[currentIndex].messages[index].display
+        },
+        lastDate(){
+            const lastIndex = this.contacts[this.currentIndex].messages.length - 1;
+            if(this.contacts[this.currentIndex].messages.length > 0){
+                return this.contacts[this.currentIndex].messages[lastIndex].date;
+            }else return
+        },
+        lastMessage(){
+            const lastIndex = this.contacts[this.currentIndex].messages.length - 1;
+            if(this.contacts[this.currentIndex].messages.length > 0){
+                return this.contacts[this.currentIndex].messages[lastIndex].message;
+            }else return
         }
     },
     computed:{
@@ -248,7 +260,7 @@ const app = new Vue({
                     return false
                 }
             })
-        }
+        },
     }
 })
 // ●	Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione

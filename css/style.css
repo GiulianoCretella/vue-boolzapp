@@ -48,16 +48,20 @@ span.accesso{
 }
 .header-text{
     margin-top: 1%;
-    margin-left: 5%;
-    line-height: 1.2;
-    vertical-align: middle;
+    margin-left: 5px;
+    height: 100%;
 }
-.left-side{
+.contenitore{
     height: calc(100% - 60px);
 }
 .account-side{
     height: 100%;
     background-color: #D3DBDB;
+}
+.notification{
+    background-color: #83CAE9;
+    height: 60px;
+    font-size: 0.8em;
 }
 .bell-circle{
     width: 45px;
@@ -71,17 +75,8 @@ span.accesso{
     position: absolute;
     top: 50%;
     left: 50%;
-   transform:translate(-50%, -50%);
-   color:#83CAE9;
-}
-.contact-list-box{
-    overflow-y: auto;
-    height: 100%;
-}
-.notification{
-    background-color: #83CAE9;
-    height: 60px;
-    font-size: 0.8em;
+    transform:translate(-50%, -50%);
+    color:#83CAE9;
 }
 .search-bar{
     background-color: #FAFAFA;
@@ -90,7 +85,28 @@ span.accesso{
 .account{
     height: calc(100% - 100px);
 }
+.data-messaggio{
+    position: absolute;
+    right: 15px;
+}
+.account .data-messaggio{
+    top: 2px;
+}
+.contact-list-box{
+    overflow-y: auto;
+    height: 100%;
+}
+.account .contact-list-box .contact-list{
+    border-bottom: 0.5px solid lightgrey;
+    padding: 5px;
+    position: relative;
+}
 
+
+                    /* lato chat  */
+.messages .data-messaggio{
+    bottom: 2px;
+}
 .message-box{
     height: 100%;
     background-image: url(../img/mine.jpg);
@@ -100,11 +116,6 @@ span.accesso{
     height: calc(100% - 40px);
     overflow:scroll;
 
-}
-.account .contact-list-box .contact-list{
-    clear: both;
-    border-bottom: 0.5px solid lightgrey;
-    padding: 5px;
 }
 .chat{
     width: 100%;
@@ -129,22 +140,19 @@ span.accesso{
 .messaggio-mio{
     float: right;
     background-color: #D2F4B6;
-    clear: both;
-    padding: 10px;
-    border-radius: 5px;
-    min-width: 40%;
-    margin-top: 30px;
-    position: relative;
 }
 .messaggio-utente{
     float: left;
-    min-width: 40%;
     background-color: #FFFFFF;
-    padding: 10px;
-    border-radius: 5px;
-    margin-top: 30px;
-    clear: both;
+}
+.messaggio-utente, .messaggio-mio{
     position: relative;
+    clear: both;
+    border-radius: 5px;
+    min-width: 40%;
+    padding: 15px;
+    margin-top: 20px;
+
 }
 .elimina{
     border: 0.5px solid lightgrey;

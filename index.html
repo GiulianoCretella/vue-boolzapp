@@ -42,7 +42,7 @@
                             :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'" alt="">
                         <div class="header-text float-start">
                             <p>{{contacts[currentIndex].name}}</p>
-                            <span class="accesso">ultimo accesso : {{contacts[currentIndex].messages[currentIndex].date}}</span>
+                            <span class="accesso">ultimo accesso : {{lastDate()}} </span>
                         </div>
                     </div>
                     <div class="col-4 float-end text-end fa-container">
@@ -53,7 +53,7 @@
                 </div>
             </div>
         </div>
-        <div class="left-side row">
+        <div class="contenitore row">
             <div class="account-side col-4">
                 <div class="notification row p-1">
                     <div class="col-3 bell-circle">
@@ -80,11 +80,12 @@
                             
                             <img class="rounded-circle float-start img-fluid"
                                 :src="'./img/avatar'+ contact.avatar +'.jpg'" alt="">
-                            <div class="header-text float-start">
+                            <div class="header-text">
                                 <p>{{contact.name}}</p>
-                                <span class="accesso"></span>
+                                <span class="accesso">{{contacts[index].messages.length > 0 ? contact.messages.at(-1).message : ''}}</span>
+                                <span class="accesso data-messaggio">{{contacts[index].messages.length > 0 ? contact.messages.at(-1).date : ''}}</span>
                             </div>
-                            <span class="accesso float-end"></span>
+                            
                         </div>
                     </div>
                 </div>
@@ -94,7 +95,7 @@
                     <div  v-for="(message,index) in contacts[currentIndex].messages" :key="index"
                     :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
                     <span @click="showRemove(index,currentIndex)">{{message.message}}</span>
-                    <span class="accesso w-25">{{message.date}}</span>
+                    <span class="accesso data-messaggio">{{message.date}}</span>
                         <div @click="eliminaMessaggio(index)" :class="{'d-block': !message.display}" class="elimina">Elimina messaggio</div>
                     </div>
                 </div>
