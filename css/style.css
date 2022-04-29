@@ -164,21 +164,17 @@ span.accesso{
     min-width: 40%;
     display: none;
 }
-@media screen and (max-width:772px) {
-    .main_header span.nome{
+.cursor{
+    cursor: pointer;
+}
+.back-grey{
+    background-color:lightgray;
+}
+@media screen and (max-width:770px){
+    .message-box{
         display: none;
     }
-    .main_header img{
-        min-width: 10px;
-        max-width: 30px;
-    }
-    .account img{
-        display: none;
-    }
-    .account{
-        height: calc(100% - 40px);
-    }
-    .notification{
+    .right-header{
         display: none;
     }
 }

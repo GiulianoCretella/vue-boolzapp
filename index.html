@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boolzapp</title>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
-    <script>dayjs().format()</script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
@@ -21,7 +20,7 @@
     <header></header>
     <main id="app" class="container">
         <div class="row main_header">
-            <div class="col-4">
+            <div class="col">
                 <div class="row align-content-center align-items-center justify-content-between">
                     <div class="col-6 p-1">
                         <img class="rounded-circle img-fluid" :src="'./img/avatar'+contacts[currentIndex].avatar+'.jpg'"
@@ -35,7 +34,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-8">
+            <div class="right-header col-8">
                 <div class="row align-content-center align-items-center justify-content-between">
                     <div class="col-8 p-1">
                         <img class="float-start rounded-circle img-fluid"
@@ -54,8 +53,8 @@
             </div>
         </div>
         <div class="contenitore row">
-            <div class="account-side col-4">
-                <div class="notification row p-1">
+            <div class="account-side col p-0">
+                <div class="notification row p-1 g-0">
                     <div class="col-3 bell-circle">
                         <i class="fa-solid fa-bell-slash"></i>
                     </div>
@@ -64,7 +63,7 @@
                         <a class="text-grey" href="#">Attiva notifiche desktop</a>
                     </div>
                 </div>
-                <div class="row search-bar p-1">
+                <div class="row search-bar p-1 g-0">
                     <div class="col-12 input-group h-100 flex-nowrap">
                         <span class="input-group-text" id="addon-wrapping">
                             <i class="fa-solid fa-magnifying-glass"></i>
@@ -74,8 +73,8 @@
                     </div>
                 </div>
                 <div class="account">
-                    <div class="contact-list-box row bg-light">
-                        <div class="contact-list col-12" @click="indexSelection(contact.id)" v-for="(contact,index) in filtro" :key="contact.id"
+                    <div class="contact-list-box bg-light">
+                        <div class="contact-list" @click="indexSelection(contact.id)" v-for="(contact,index) in filtro" :key="contact.id"
                             :class="{'active-account': contact.id === activeContactId}">
                             
                             <img class="rounded-circle float-start img-fluid"
