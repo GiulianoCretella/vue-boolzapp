@@ -254,7 +254,7 @@ const app = new Vue({
             if(this.contacts[this.currentIndex].messages.length > 0){
                 return this.contacts[this.currentIndex].messages[lastIndex].message;
             }else return
-        }
+        },
     },
     computed:{
         filtro(){
