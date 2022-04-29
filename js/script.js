@@ -284,3 +284,4 @@ const app = new Vue({
 
 // ●	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 
+// A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono.
