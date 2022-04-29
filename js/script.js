@@ -226,10 +226,10 @@ const app = new Vue({
 
             }
             this.mioMessaggio='';
-            console.log(newMessage.date)
+            let risposteUtente=['Certo,scrivimi quando preferisci!','Come posso aiutarti?','Come va?','Hai perfettamente ragione!','Da quanto tempo!','Basta ho esaurito le frasi']
             const messaggioUtente= {
                 date: dayjs().format('DD/MM/YYYY HH:mm:ss'),
-                message:'OK!',
+                message: risposteUtente[Math.floor(Math.random()*risposteUtente.length)],
                 status:'received',
                 display:'false'
             }
@@ -284,4 +284,6 @@ const app = new Vue({
 
 // ●	Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti 
 
-// A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono.
+
+            //   funzionalità bonus
+// A) cambiare icona in basso a destra (a fianco all'input per scrivere un nuovo messaggio) finché l'utente sta scrivendo: di default si visualizza l'icona del microfono, quando l'input non è vuoto si visualizza l'icona dell'aeroplano. Quando il messaggio è stato inviato e l'input si svuota, si torna a visualizzare il microfono 
