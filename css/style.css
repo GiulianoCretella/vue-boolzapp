@@ -163,12 +163,14 @@ span.accesso{
     border-radius: 10px;
     min-width: 40%;
     display: none;
+    z-index: 30;
 }
-.cursor{
+.contact-list:hover{
+    background-color:lightgray;
     cursor: pointer;
 }
-.back-grey{
-    background-color:lightgray;
+.fa-solid:hover, .messaggio-utente:hover, .messaggio-mio:hover{
+    cursor: pointer;
 }
 @media screen and (max-width:770px){
     .message-box{

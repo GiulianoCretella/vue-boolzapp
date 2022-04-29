@@ -92,8 +92,8 @@
             <div class="message-box col-8">
                 <div class="messages">
                     <div  v-for="(message,index) in contacts[currentIndex].messages" :key="index"
-                    :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}">
-                    <span @click="showRemove(index,currentIndex)">{{message.message}}</span>
+                    :class="{'messaggio-mio' : message.status === 'sent','messaggio-utente' : message.status === 'received'}" @click="showRemove(index,currentIndex)">
+                    <span >{{message.message}}</span>
                     <span class="accesso data-messaggio">{{message.date}}</span>
                         <div @click="eliminaMessaggio(index)" :class="{'d-block': !message.display}" class="elimina">Elimina messaggio</div>
                     </div>
